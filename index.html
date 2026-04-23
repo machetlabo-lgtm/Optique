@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>
+      /**
+       * FETCH PROTECTION SHIELD v6 - ULTIMATE
+       * This script MUST run as the first thing in the head.
+       * It handles the read-only fetch problem by overriding descriptors.
+       */
+      (function() {
+        var _original = window.fetch;
+        var _val = _original;
+        var props = {
+          get: function() { return _val; },
+          set: function(v) { _val = v; },
+          configurable: true,
+          enumerable: true
+        };
+        try {
+          Object.defineProperty(window, 'fetch', props);
+        } catch (e) {
+          try {
+            Object.defineProperty(Window.prototype, 'fetch', props);
+          } catch (e2) {}
+        }
+        if (typeof globalThis !== 'undefined') {
+          try { Object.defineProperty(globalThis, 'fetch', props); } catch (e) {}
+        }
+        if (typeof self !== 'undefined') {
+          try { Object.defineProperty(self, 'fetch', props); } catch (e) {}
+        }
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpticLab 3D - Simulation Optique</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="src/main.tsx"></script>
+  </body>
+</html>
+
