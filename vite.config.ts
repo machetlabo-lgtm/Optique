@@ -1,10 +1,12 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
-import {defineConfig} from 'vite';
+import { defineConfig } from 'vite';
 
 export default defineConfig({
-base: '/ optique/', // استبدله باسم المستودع الخاص بك على غيت هاب  
+  // تم تعديل المسار ليتطابق تماماً مع اسم المستودع الخاص بك
+  base: '/Optique/', 
+  
   appType: 'spa',
   plugins: [react(), tailwindcss()],
   resolve: {
