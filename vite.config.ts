@@ -4,7 +4,7 @@ import path from 'path';
 import {defineConfig} from 'vite';
 
 export default defineConfig({
-  base: './',
+base: '/ optique/', // استبدله باسم المستودع الخاص بك على غيت هاب  
   appType: 'spa',
   plugins: [react(), tailwindcss()],
   resolve: {
